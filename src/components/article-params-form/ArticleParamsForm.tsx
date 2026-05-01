@@ -13,12 +13,12 @@ import { Separator } from 'src/ui/separator';
 // 8 918 405 08 58
 
 type ArticleParamsFormProps = {
-	// state: ArticleStateType,
-	setState: React.Dispatch<React.SetStateAction<ArticleStateType>>
+	defaultParams: ArticleStateType,
+	onApply: React.Dispatch<React.SetStateAction<ArticleStateType>>
 };
 
 export const ArticleParamsForm = (props: ArticleParamsFormProps) => {
-	const [formParam, setFormParams] = useState(defaultArticleState);
+	const [formParam, setFormParams] = useState(props.defaultParams);
 
 	const [formOpen, setFormOpen] = useState(false);
 
@@ -32,13 +32,13 @@ export const ArticleParamsForm = (props: ArticleParamsFormProps) => {
 
 	const handleReset = () => {
 		setFormParams(defaultArticleState);
-		props.setState(defaultArticleState);
+		props.onApply(defaultArticleState);
 	}
 
 	const handleSubmit = (e: FormEvent) => {
 		// alert('submit');
 		e.preventDefault();
-		props.setState(formParam);
+		props.onApply(formParam);
 
 	}
 

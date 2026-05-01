@@ -33,7 +33,7 @@ export const App = () => {
 				} as CSSProperties
 			}>
 			{/* <ArticleParamsForm state={formParams} setState={setFormParams}/> */}
-			<ArticleParamsForm setState={setParams}/>
+			<ArticleParamsForm defaultParams={params} onApply={setParams}/>
 			<Article />
 		</main>
 	);
