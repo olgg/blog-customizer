@@ -8,17 +8,7 @@ import { ArticleStateType, defaultArticleState } from './../../constants/article
 import styles from './app.module.scss';
 
 export const App = () => {
-	// const [formParams, setFormParams] = useState(defaultArticleState);
 	const [params, setParams] = useState(defaultArticleState);
-
-	// const onApply = () => {
-	// 	setParams(formParams);
-	// }
-
-	// const onReset = () => {
-	// 	setFormParams(defaultArticleState);
-	// 	setParams(defaultArticleState);
-	// }
 
 	return (
 		<main
@@ -32,7 +22,6 @@ export const App = () => {
 					'--bg-color': params.backgroundColor.value
 				} as CSSProperties
 			}>
-			{/* <ArticleParamsForm state={formParams} setState={setFormParams}/> */}
 			<ArticleParamsForm defaultParams={params} onApply={setParams}/>
 			<Article />
 		</main>

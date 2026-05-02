@@ -10,8 +10,6 @@ import { RadioGroup } from 'src/ui/radio-group';
 import { Text } from 'src/ui/text';
 import { Separator } from 'src/ui/separator';
 
-// 8 918 405 08 58
-
 type ArticleParamsFormProps = {
 	defaultParams: ArticleStateType,
 	onApply: React.Dispatch<React.SetStateAction<ArticleStateType>>
@@ -42,7 +40,7 @@ export const ArticleParamsForm = (props: ArticleParamsFormProps) => {
 			window.removeEventListener('keypress', handleEsc);
 			window.removeEventListener('mousedown', handleClick);
 		}
-	})
+	});
 
 	const handleArrowClick = () => {
 		setFormOpen(!formOpen);
@@ -58,17 +56,10 @@ export const ArticleParamsForm = (props: ArticleParamsFormProps) => {
 	}
 
 	const handleSubmit = (e: FormEvent) => {
-		// alert('submit');
 		e.preventDefault();
 		props.onApply(formParam);
 
 	}
-
-	// const fontChanged = (selectedFont: OptionType) => { props.setState( {...props.state, fontFamilyOption: selectedFont} )};
-	// const sizeChanged = (selectedSize: OptionType) => { props.setState( {...props.state, fontSizeOption: selectedSize} )};
-	// const colorChanged = (selectedColor: OptionType) => { props.setState( {...props.state, fontColor: selectedColor} )};
-	// const bgColorChanged = (selectedBgColor: OptionType) => { props.setState( {...props.state, backgroundColor: selectedBgColor} )};
-	// const widthChanged = (selectedWidth: OptionType) => { props.setState( {...props.state, contentWidth: selectedWidth} )};
 
 	const containerStyles = clsx({
 		[styles.container]: true,
@@ -84,7 +75,6 @@ export const ArticleParamsForm = (props: ArticleParamsFormProps) => {
 						children='Задайте параметры'
 					/>
 					<Select
-						// selected={props.state.fontFamilyOption}
 						selected={formParam.fontFamilyOption}
 						onChange={handleChange('fontFamilyOption')}
 						options={fontFamilyOptions}
@@ -93,18 +83,14 @@ export const ArticleParamsForm = (props: ArticleParamsFormProps) => {
 
 					<RadioGroup
 						selected={formParam.fontSizeOption}
-						// selected={props.state.fontSizeOption}
 						name='radio'
-						// onChange={sizeChanged}
 						onChange={handleChange('fontSizeOption')}
 						options={fontSizeOptions}
 						title='размер шрифта'
 					/>
 
 					<Select
-						// selected={props.state.fontColor}
 						selected={formParam.fontColor}
-						// onChange={colorChanged}
 						onChange={handleChange('fontColor')}
 						options={fontColors}
 						title='цвет шрифта'
@@ -113,19 +99,15 @@ export const ArticleParamsForm = (props: ArticleParamsFormProps) => {
 					<Separator />
 
 					<Select
-						// selected={props.state.backgroundColor}
 						selected={formParam.backgroundColor}
-						// onChange={bgColorChanged}
 						onChange={handleChange('backgroundColor')}
 						options={backgroundColors}
 						title='цвет фона'
 					/>
 
 					<Select
-						// selected={props.state.contentWidth}
 						selected={formParam.contentWidth}
 						onChange={handleChange('contentWidth')}
-						// onChange={widthChanged}
 						options={contentWidthArr}
 						title='ширина контента'
 					/>
