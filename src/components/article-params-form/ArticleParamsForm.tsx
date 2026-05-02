@@ -61,10 +61,12 @@ export const ArticleParamsForm = (props: ArticleParamsFormProps) => {
 
 	}
 
-	const containerStyles = clsx({
-		[styles.container]: true,
-		[styles.container_open]: formOpen
-	});
+	const containerStyles = clsx(
+		styles.container,
+		{
+			[styles.container_open]: formOpen
+		}
+	);
 
 	return (
 		<>
